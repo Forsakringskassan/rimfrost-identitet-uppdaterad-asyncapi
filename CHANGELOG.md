@@ -1,3 +1,9 @@
+## 0.0.3 (2026-11-06)
+
+### Bug Fixes
+
+-  update gradle.properties description and group to identitet-uppdaterad ([adb63](https://github.com/Forsakringskassan/rimfrost-identitet-uppdaterad-asyncapi/commit/adb638204f7f1ba) Ulf Slunga)  
+
 ## 0.0.2 (2026-11-06)
 
 ### Bug Fixes
