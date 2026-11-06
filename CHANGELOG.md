@@ -1,3 +1,12 @@
+## 0.0.2 (2026-11-06)
+
+### Bug Fixes
+
+-  remove subscribe/unsubscribe operations, rename to identitet-uppdaterad ([3b37b](https://github.com/Forsakringskassan/rimfrost-identitet-uppdaterad-asyncapi/commit/3b37b32285af144) Ulf Slunga)  
+
+### Dependency updates
+
+- update forsakringskassan/.github digest to 625efb1 ([d4ae4](https://github.com/Forsakringskassan/rimfrost-identitet-uppdaterad-asyncapi/commit/d4ae49a18b19115) renovate[bot])  
 # rimfrost-service-kund-prenumeration-asyncapi changelog
 
 Changelog of rimfrost-service-kund-prenumeration-asyncapi.
