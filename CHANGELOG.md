@@ -1,3 +1,9 @@
+## 0.0.4 (2026-11-06)
+
+### Bug Fixes
+
+-  add channel and message definitions to enable IdentitetUppdateradEvent class generation ([e365f](https://github.com/Forsakringskassan/rimfrost-identitet-uppdaterad-asyncapi/commit/e365fb632294e7a) Ulf Slunga)  
+
 ## 0.0.3 (2026-11-06)
 
 ### Bug Fixes
