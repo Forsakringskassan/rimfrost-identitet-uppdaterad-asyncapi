@@ -9,7 +9,28 @@ info:
     När identitetsdata uppdateras av en extern källa publiceras ett IdentitetUppdateradEvent
     till det topic som angavs vid registrering.
 
+channels:
+  identitet.uppdaterad:
+    address: identitet.uppdaterad
+    messages:
+      IdentitetUppdateradEvent:
+        $ref: "#/components/messages/IdentitetUppdateradEvent"
+
+operations:
+  PublishIdentitetUppdaterad:
+    action: send
+    summary: Publicerar ett event när identitetsdata har uppdaterats av en extern källa
+    channel:
+      $ref: "#/channels/identitet.uppdaterad"
+    messages:
+      - $ref: "#/channels/identitet.uppdaterad/messages/IdentitetUppdateradEvent"
+
 components:
+  messages:
+    IdentitetUppdateradEvent:
+      payload:
+        $ref: "#/components/schemas/IdentitetUppdateradEvent"
+
   schemas:
     IdentitetUppdateradEvent:
       type: object
