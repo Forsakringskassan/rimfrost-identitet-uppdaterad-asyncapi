@@ -1,38 +1,17 @@
-# rimfrost-service-kund-prenumeration-asyncapi
+# rimfrost-identitet-uppdaterad-asyncapi
 
-AsyncAPI-spec för `rimfrost-service-kund-prenumeration` — en generell service för prenumeration på förändringar i kundcentrerat data.
+AsyncAPI-spec som definierar det event som publiceras när identitetsdata har uppdaterats av en extern källa.
 
 ## Syfte
 
-När en användare kompletterar en uppgift på Mina sidor uppdateras kundcentrerat data av en extern källa. Regler (t.ex. kompletteringsregler) behöver kunna reagera på dessa förändringar för att kunna påverka regelutfallet.
+När identitetsdata uppdateras av en extern källa publiceras ett `IdentitetUppdateradEvent` till det topic som angavs vid registrering. Prenumeration och avregistrering hanteras via REST — se OpenAPI-specen för `rimfrost-service-identitet-prenumeration-openapi`.
 
-Denna service tillhandahåller en Kafka-baserad prenumerationsmekanism: en regel registrerar intresse för en specifik kund (via idtyp + idvärde) och får en notifikation när kundens data har uppdaterats.
-
-## Flöde
-
-```
-Regel                          kund-prenumeration              Extern källa
-  |                                    |                             |
-  |-- subscribe (prenumerationId,  --> |                             |
-  |   kund, replyTo) ----------->      |                             |
-  |                                    |                             |
-  |                       [kundcentrerat data uppdateras] <---------|
-  |                                    |
-  |<-- notification (prenumerationId,  |
-  |    kund) <------------------------ |
-  |                                    |
-  |-- unsubscribe (prenumerationId) -> |
-```
-
-## Kanaler
+## Event
 
 | Kafka-topic | Riktning | Beskrivning |
 |---|---|---|
-| `kund.subscribe` | → service | Registrera prenumeration |
-| `kund.unsubscribe` | → service | Avregistrera prenumeration |
-| `replyTo` (angiven av prenumerant) | ← service | Event om förändrat kundcentrerat data |
+| `replyTo` (angiven vid registrering) | ← service | `IdentitetUppdateradEvent` |
 
 ## Spec
 
 Se [`asyncapi.yaml`](asyncapi.yaml) för fullständig meddelandedefinition.
-
